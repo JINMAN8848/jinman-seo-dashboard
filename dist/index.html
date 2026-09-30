@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO 控制台 · jinman-plastics.com.cn</title>
+<style>
+  :root {
+    --bg: #f9fafb; --card: #ffffff; --text: #111827; --muted: #6b7280;
+    --border: #e5e7eb; --ok: #10b981; --warn: #f59e0b; --err: #ef4444; --info: #3b82f6;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Microsoft YaHei", sans-serif; background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.5; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 24px; }
+  header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+    margin-bottom: 24px; gap: 12px; }
+  h1 { font-size: 24px; margin: 0; }
+  h2 { font-size: 18px; margin: 0 0 12px 0; color: var(--text); }
+  .stamp { font-size: 12px; color: var(--muted); }
+  .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px; margin-bottom: 24px; }
+  .kpi { background: var(--card); border: 1px solid var(--border); border-radius: 8px;
+    padding: 16px; }
+  .kpi .label { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+  .kpi .value { font-size: 28px; font-weight: 700; }
+  .kpi .detail { font-size: 12px; color: var(--muted); margin-top: 4px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 16px; margin-bottom: 24px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 8px;
+    padding: 20px; }
+  .card-full { grid-column: 1 / -1; }
+  .chart-wrap { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+  .chart-svg { max-width: 100%; height: auto; display: block; }
+  .legend { list-style: none; padding: 0; margin: 0; font-size: 13px; }
+  .legend li { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .legend li strong { margin-left: auto; font-weight: 600; }
+  .swatch { width: 12px; height: 12px; border-radius: 2px; display: inline-block; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { padding: 8px 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { background: #f3f4f6; font-weight: 600; color: var(--muted); font-size: 12px;
+    text-transform: uppercase; letter-spacing: 0.5px; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  td.url { word-break: break-all; }
+  td.url code, td code { background: #f3f4f6; padding: 1px 4px; border-radius: 3px;
+    font-size: 12px; }
+  .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px;
+    font-weight: 600; }
+  .tag-ok { background: #d1fae5; color: #065f46; }
+  .tag-fail { background: #fee2e2; color: #991b1b; }
+  .tag-err { background: #e5e7eb; color: #4b5563; }
+  .tag-cat { background: #ede9fe; color: #5b21b6; }
+  .muted { color: var(--muted); text-align: center; padding: 16px; }
+  footer { margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--border);
+    font-size: 12px; color: var(--muted); }
+  footer code { background: #f3f4f6; padding: 1px 4px; border-radius: 3px; }
+  .alert { background: #fef3c7; border: 1px solid #fbbf24; border-radius: 6px;
+    padding: 12px 16px; margin-bottom: 16px; font-size: 13px; }
+  .alert strong { color: #92400e; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <div>
+    <h1>SEO 控制台 · jinman-plastics.com.cn</h1>
+    <div class="stamp">生成时间：2026-9-30 10:22:24</div>
+  </div>
+</header>
+
+<div class="alert">
+  <strong>📊 提示</strong>：本控制台由 L1 调度师自动构建，数据源 <code>F:\OpenClaw\workspace\seo-data\*.csv</code>，无 CDN、无外部 API 依赖。每月初可手动跑 <code>node build.mjs</code> 刷新。
+</div>
+
+<div class="kpi-grid">
+  <div class="kpi">
+    <div class="label">GSC 检查 URLs</div>
+    <div class="value">249</div>
+    <div class="detail">最近：2026-09-28 · 总 77 / 通过 undefined / 失败 0 / ERR undefined</div>
+  </div>
+  <div class="kpi">
+    <div class="label">索引通过率</div>
+    <div class="value">5.2%</div>
+    <div class="detail">全部 GSC 数据累计</div>
+  </div>
+  <div class="kpi">
+    <div class="label">失败/错误 URL</div>
+    <div class="value">1</div>
+    <div class="detail">需关注列表（详见下方）</div>
+  </div>
+  <div class="kpi">
+    <div class="label">百度关键词</div>
+    <div class="value">76</div>
+    <div class="detail">总点击 0 / 展示 0</div>
+  </div>
+</div>
+
+<div class="grid">
+  <div class="card">
+    <h2>🟢 GSC 索引覆盖率</h2>
+    <div class="chart-wrap">
+      <svg viewBox="0 0 160 160" class="chart-svg" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="80" cy="80" r="66" fill="none" stroke="#e5e7eb" stroke-width="28" />
+    <circle cx="80" cy="80" r="66" fill="none"
+        stroke="#10b981" stroke-width="28"
+        stroke-dasharray="21.650493950040502 414.6902302738527" stroke-dashoffset="0"
+        transform="rotate(-90 80 80)" /><circle cx="80" cy="80" r="66" fill="none"
+        stroke="#3b82f6" stroke-width="28"
+        stroke-dasharray="81.60570796553728 414.6902302738527" stroke-dashoffset="-21.650493950040502"
+        transform="rotate(-90 80 80)" /><circle cx="80" cy="80" r="66" fill="none"
+        stroke="#60a5fa" stroke-width="28"
+        stroke-dasharray="11.65795828079104 414.6902302738527" stroke-dashoffset="-103.25620191557778"
+        transform="rotate(-90 80 80)" /><circle cx="80" cy="80" r="66" fill="none"
+        stroke="#f59e0b" stroke-width="28"
+        stroke-dasharray="8.327113057707885 414.6902302738527" stroke-dashoffset="-114.91416019636883"
+        transform="rotate(-90 80 80)" /><circle cx="80" cy="80" r="66" fill="none"
+        stroke="#8b5cf6" stroke-width="28"
+        stroke-dasharray="3.330845223083154 414.6902302738527" stroke-dashoffset="-123.24127325407672"
+        transform="rotate(-90 80 80)" /><circle cx="80" cy="80" r="66" fill="none"
+        stroke="#9ca3af" stroke-width="28"
+        stroke-dasharray="1.665422611541577 414.6902302738527" stroke-dashoffset="-126.57211847715988"
+        transform="rotate(-90 80 80)" /><circle cx="80" cy="80" r="66" fill="none"
+        stroke="#6b7280" stroke-width="28"
+        stroke-dasharray="286.45268918515126 414.6902302738527" stroke-dashoffset="-128.23754108870145"
+        transform="rotate(-90 80 80)" />
+    <text x="80" y="80" text-anchor="middle" dominant-baseline="middle"
+      font-size="26.666666666666668" font-weight="600" fill="#111827">249</text>
+  </svg>
+      <ul class="legend"><li><span class="swatch" style="background:#10b981"></span>已索引 <strong>13</strong></li><li><span class="swatch" style="background:#3b82f6"></span>已发现未索引 <strong>49</strong></li><li><span class="swatch" style="background:#60a5fa"></span>已抓取未索引 <strong>7</strong></li><li><span class="swatch" style="background:#f59e0b"></span>Google 未知 <strong>5</strong></li><li><span class="swatch" style="background:#8b5cf6"></span>规范页 <strong>2</strong></li><li><span class="swatch" style="background:#a3a3a3"></span>被排除 <strong>0</strong></li><li><span class="swatch" style="background:#ef4444"></span>索引失败 <strong>0</strong></li><li><span class="swatch" style="background:#9ca3af"></span>API 错误 <strong>1</strong></li><li><span class="swatch" style="background:#d4d4d8"></span>未生效 <strong>0</strong></li><li><span class="swatch" style="background:#6b7280"></span>其它 <strong>172</strong></li></ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>📱 移动友好率</h2>
+    <div class="chart-wrap">
+      <svg viewBox="0 0 160 160" class="chart-svg" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="80" cy="80" r="66" fill="none" stroke="#e5e7eb" stroke-width="28" />
+    <circle cx="80" cy="80" r="66" fill="none"
+        stroke="#9ca3af" stroke-width="28"
+        stroke-dasharray="1.665422611541577 414.6902302738527" stroke-dashoffset="0"
+        transform="rotate(-90 80 80)" /><circle cx="80" cy="80" r="66" fill="none"
+        stroke="#6b7280" stroke-width="28"
+        stroke-dasharray="413.0248076623111 414.6902302738527" stroke-dashoffset="-1.665422611541577"
+        transform="rotate(-90 80 80)" />
+    <text x="80" y="80" text-anchor="middle" dominant-baseline="middle"
+      font-size="26.666666666666668" font-weight="600" fill="#111827">249</text>
+  </svg>
+      <ul class="legend"><li><span class="swatch" style="background:#10b981"></span>移动友好 <strong>0</strong></li><li><span class="swatch" style="background:#f59e0b"></span>移动不友好 <strong>0</strong></li><li><span class="swatch" style="background:#9ca3af"></span>API 错误 <strong>1</strong></li><li><span class="swatch" style="background:#6b7280"></span>未指定 <strong>248</strong></li></ul>
+    </div>
+  </div>
+
+  <div class="card card-full">
+    <h2>📈 GSC 索引状态趋势（按日）</h2>
+    <p class="stamp">绿 = PASS / 红 = FAIL / 灰 = ERR</p>
+    <svg viewBox="0 0 640 220" class="chart-svg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+    <line x1="50" y1="180" x2="624" y2="180" stroke="#f3f4f6" stroke-width="1" />
+      <text x="44" y="184" text-anchor="end" font-size="10" fill="#9ca3af">0</text><line x1="50" y1="140" x2="624" y2="140" stroke="#f3f4f6" stroke-width="1" />
+      <text x="44" y="144" text-anchor="end" font-size="10" fill="#9ca3af">43</text><line x1="50" y1="100" x2="624" y2="100" stroke="#f3f4f6" stroke-width="1" />
+      <text x="44" y="104" text-anchor="end" font-size="10" fill="#9ca3af">86</text><line x1="50" y1="60" x2="624" y2="60" stroke="#f3f4f6" stroke-width="1" />
+      <text x="44" y="64" text-anchor="end" font-size="10" fill="#9ca3af">129</text><line x1="50" y1="20" x2="624" y2="20" stroke="#f3f4f6" stroke-width="1" />
+      <text x="44" y="24" text-anchor="end" font-size="10" fill="#9ca3af">172</text>
+    <text x="193.5" y="202" text-anchor="middle" font-size="11" fill="#6b7280">09-27</text><rect x="380.05" y="108.37209302325581" width="200.89999999999998" height="12.093023255813954" fill="#10b981" /><rect x="380.05" y="120.46511627906978" width="200.89999999999998" height="0.9302325581395349" fill="#9ca3af" /><text x="480.5" y="202" text-anchor="middle" font-size="11" fill="#6b7280">09-28</text>
+  </svg>
+  </div>
+
+  <div class="card">
+    <h2>📊 百度 - 点击趋势</h2>
+    <svg viewBox="0 0 640 180" class="chart-svg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+    <text x="44" y="148" text-anchor="end" font-size="10" fill="#9ca3af">0</text><text x="44" y="84" text-anchor="end" font-size="10" fill="#9ca3af">1</text><text x="44" y="20" text-anchor="end" font-size="10" fill="#9ca3af">1</text>
+    <path d="M 50.0 144.0 L 624.0 144.0" fill="none" stroke="#3b82f6" stroke-width="2" />
+    <circle cx="50.0" cy="144.0" r="3" fill="#3b82f6" /><circle cx="624.0" cy="144.0" r="3" fill="#3b82f6" />
+    <text x="50" y="168" text-anchor="middle" font-size="11" fill="#6b7280">09-27</text><text x="624" y="168" text-anchor="middle" font-size="11" fill="#6b7280">09-28</text>
+  </svg>
+  </div>
+
+  <div class="card">
+    <h2>👁️ 百度 - 展示趋势</h2>
+    <svg viewBox="0 0 640 180" class="chart-svg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+    <text x="44" y="148" text-anchor="end" font-size="10" fill="#9ca3af">0</text><text x="44" y="84" text-anchor="end" font-size="10" fill="#9ca3af">1</text><text x="44" y="20" text-anchor="end" font-size="10" fill="#9ca3af">1</text>
+    <path d="M 50.0 144.0 L 624.0 144.0" fill="none" stroke="#8b5cf6" stroke-width="2" />
+    <circle cx="50.0" cy="144.0" r="3" fill="#8b5cf6" /><circle cx="624.0" cy="144.0" r="3" fill="#8b5cf6" />
+    <text x="50" y="168" text-anchor="middle" font-size="11" fill="#6b7280">09-27</text><text x="624" y="168" text-anchor="middle" font-size="11" fill="#6b7280">09-28</text>
+  </svg>
+  </div>
+</div>
+
+<div class="card">
+  <h2>🚨 失败 / 错误 URL 列表（需关注）</h2>
+  <table>
+    <thead>
+      <tr><th>日期</th><th>URL</th><th>覆盖率</th><th>索引状态</th><th>移动可用</th></tr>
+    </thead>
+    <tbody>
+      
+    <tr>
+      <td><code>2026-09-28</code></td>
+      <td class="url"><code>https://jinman-plastics.com.cn/contact/</code></td>
+      <td><span class="tag tag-err">ERR</span></td>
+      <td><span class="tag tag-err">ERR</span></td>
+      <td><span class="tag tag-err">ERR</span></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="card">
+  <h2>🔍 百度 TOP 关键词（按展示量）</h2>
+  <p class="stamp">最近：2026-09-28 · 总 38 词 / 有排名 0 / ERR 38</p>
+  <table>
+    <thead>
+      <tr><th>关键词</th><th>类目</th><th>点击</th><th>展示</th></tr>
+    </thead>
+    <tbody>
+      <tr><td colspan="4" class="muted">暂无百度数据（cron 还没接，需 PowerShell 灌 token）</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="card">
+  <h2>⚠️ 百度 ERR 关键词（API 失败）</h2>
+  <table>
+    <thead>
+      <tr><th>日期</th><th>关键词</th><th>类目</th></tr>
+    </thead>
+    <tbody>
+      
+    <tr>
+      <td><code>2026-09-28</code></td>
+      <td>EMA 共聚物</td>
+      <td><span class="tag tag-cat">ema</span></td>
+    </tr>
+    <tr>
+      <td><code>2026-09-28</code></td>
+      <td>Lotryl 17MA01</td>
+      <td><span class="tag tag-cat">ema</span></td>
+    </tr>
+    <tr>
+      <td><code>2026-09-28</code></td>
+      <td>Lotryl 24MA02</td>
+      <td><span class="tag tag-cat">ema</span></td>
+    </tr>
+    <tr>
+      <td><code>2026-09-28</code></td>
+      <td>Lotryl 28MA03</td>
+      <td><span class="tag tag-cat">ema</span></td>
+    </tr>
+    <tr>
+      <td><code>2026-09-28</code></td>
+      <td>Lotryl 37MC01</td>
+      <td><span class="tag tag-cat">ema</span></td>
+    </tr>
+    <tr>
+      <td><code>2026-09-28</code></td>
+      <td>Optema TC130</td>
+      <td><span class="tag tag-cat">ema</span></td>
+    </tr>
+    <tr>
+      <td><code>2026-09-28</code></td>
+      <td>Optema TC120</td>
+      <td><span class="tag tag-cat">ema</span></td>
+    </tr>
+    <tr>
+      <td><code>2026-09-28</code></td>
+      <td>Optema PS140</td>
+      <td><span class="tag tag-cat">ema</span></td>
+    </tr>
+    <tr>
+      <td><code>2026-09-28</code></td>
+      <td>Amplify EA101</td>
+      <td><span class="tag tag-cat">ema</span></td>
+    </tr>
+    <tr>
+      <td><code>2026-09-28</code></td>
+      <td>EMMA 共聚物</td>
+      <td><span class="tag tag-cat">emma</span></td>
+    </tr>
+    <tr>
+      <td><code>2026-09-28</code></td>
+      <td>Lucalen A3710</td>
+      <td><span class="tag tag-cat">emma</span></td>
+    </tr>
+    <tr>
+      <td><code>2026-09-28</code></td>
+      <td>Lucalen A2320</td>
+      <td><span class="tag tag-cat">emma</span></td>
+    </tr>
+    <tr>
+      <td><code>2026-09-28</code></td>
+      <td>Lucalen A2520</td>
+      <td><span class="tag tag-cat">emma</span></td>
+    </tr>
+    <tr>
+      <td><code>2026-09-28</code></td>
+      <td>Lucalen A2520M</td>
+      <td><span class="tag tag-cat">emma</span></td>
+    </tr>
+    <tr>
+      <td><code>2026-09-28</code></td>
+      <td>Lucalen A2920</td>
+      <td><span class="tag tag-cat">emma</span></td>
+    </tr>
+    <tr>
+      <td><code>2026-09-28</code></td>
+      <td>EEA 共聚物</td>
+      <td><span class="tag tag-cat">eea</span></td>
+    </tr>
+    <tr>
+      <td><code>2026-09-28</code></td>
+      <td>Enable 33-05HH</td>
+      <td><span class="tag tag-cat">eea</span></td>
+    </tr>
+    <tr>
+      <td><code>2026-09-28</code></td>
+      <td>Enable 27-05HH</td>
+      <td><span class="tag tag-cat">eea</span></td>
+    </tr>
+    <tr>
+      <td><code>2026-09-28</code></td>
+      <td>Enable 23-05HH</td>
+      <td><span class="tag tag-cat">eea</span></td>
+    </tr>
+    <tr>
+      <td><code>2026-09-28</code></td>
+      <td>Enable 35-05HH</td>
+      <td><span class="tag tag-cat">eea</span></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<footer>
+  <strong>数据源：</strong>
+  <ul>
+    <li><code>baidu-keyword-rank-2026-09-28.csv (38 行)</code></li><li><code>baidu-keyword-rank-2026-09-27.csv (38 行)</code></li><li><code>gsc-inspection-2026-09-28.csv (77 行)</code></li><li><code>gsc-inspection-2026-09-27.csv (172 行)</code></li>
+  </ul>
+  <p>构建脚本：<code>F:\OpenClaw\workspace\seo-dashboard\build.mjs</code></p>
+  <p>模板：<code>F:\OpenClaw\workspace\seo-dashboard\src\template.html</code></p>
+  <p>生成 UTC 时间戳：<code>2026-09-30 02:22:24 UTC</code></p>
+</footer>
+
+</div>
+</body>
+</html>

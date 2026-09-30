@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{TITLE}}</title>
+<style>{{CSS}}</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <div>
+    <h1>{{TITLE}}</h1>
+    <div class="stamp">生成时间：{{GENERATED_AT}}</div>
+  </div>
+</header>
+
+<div class="alert">
+  <strong>📊 提示</strong>：本控制台由 L1 调度师自动构建，数据源 <code>F:\OpenClaw\workspace\seo-data\*.csv</code>，无 CDN、无外部 API 依赖。每月初可手动跑 <code>node build.mjs</code> 刷新。
+</div>
+
+<div class="kpi-grid">
+  <div class="kpi">
+    <div class="label">GSC 检查 URLs</div>
+    <div class="value">{{KPI_GSC_TOTAL}}</div>
+    <div class="detail">最近：{{KPI_GSC_LATEST}}</div>
+  </div>
+  <div class="kpi">
+    <div class="label">索引通过率</div>
+    <div class="value">{{KPI_GSC_PASSRATE}}</div>
+    <div class="detail">全部 GSC 数据累计</div>
+  </div>
+  <div class="kpi">
+    <div class="label">失败/错误 URL</div>
+    <div class="value">{{KPI_GSC_FAILED}}</div>
+    <div class="detail">需关注列表（详见下方）</div>
+  </div>
+  <div class="kpi">
+    <div class="label">百度关键词</div>
+    <div class="value">{{KPI_BAIDU_TOTAL}}</div>
+    <div class="detail">总点击 {{KPI_BAIDU_CLICKS}} / 展示 {{KPI_BAIDU_IMPR}}</div>
+  </div>
+</div>
+
+<div class="grid">
+  <div class="card">
+    <h2>🟢 GSC 索引覆盖率</h2>
+    <div class="chart-wrap">
+      {{GSC_COV_CHART}}
+      {{GSC_COV_LEGEND}}
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>📱 移动友好率</h2>
+    <div class="chart-wrap">
+      {{GSC_MOB_CHART}}
+      {{GSC_MOB_LEGEND}}
+    </div>
+  </div>
+
+  <div class="card card-full">
+    <h2>📈 GSC 索引状态趋势（按日）</h2>
+    <p class="stamp">绿 = PASS / 红 = FAIL / 灰 = ERR</p>
+    {{GSC_TREND_CHART}}
+  </div>
+
+  <div class="card">
+    <h2>📊 百度 - 点击趋势</h2>
+    {{BAIDU_CLICKS_CHART}}
+  </div>
+
+  <div class="card">
+    <h2>👁️ 百度 - 展示趋势</h2>
+    {{BAIDU_IMPR_CHART}}
+  </div>
+</div>
+
+<div class="card">
+  <h2>🚨 失败 / 错误 URL 列表（需关注）</h2>
+  <table>
+    <thead>
+      <tr><th>日期</th><th>URL</th><th>覆盖率</th><th>索引状态</th><th>移动可用</th></tr>
+    </thead>
+    <tbody>
+      {{FAILED_URLS_ROWS}}
+    </tbody>
+  </table>
+</div>
+
+<div class="card">
+  <h2>🔍 百度 TOP 关键词（按展示量）</h2>
+  <p class="stamp">最近：{{KPI_BAIDU_LATEST}}</p>
+  <table>
+    <thead>
+      <tr><th>关键词</th><th>类目</th><th>点击</th><th>展示</th></tr>
+    </thead>
+    <tbody>
+      {{TOP_KEYWORDS_ROWS}}
+    </tbody>
+  </table>
+</div>
+
+<div class="card">
+  <h2>⚠️ 百度 ERR 关键词（API 失败）</h2>
+  <table>
+    <thead>
+      <tr><th>日期</th><th>关键词</th><th>类目</th></tr>
+    </thead>
+    <tbody>
+      {{BAIDU_ERR_ROWS}}
+    </tbody>
+  </table>
+</div>
+
+<footer>
+  <strong>数据源：</strong>
+  <ul>
+    {{DATA_SOURCES}}
+  </ul>
+  <p>构建脚本：<code>F:\OpenClaw\workspace\seo-dashboard\build.mjs</code></p>
+  <p>模板：<code>F:\OpenClaw\workspace\seo-dashboard\src\template.html</code></p>
+  <p>生成 UTC 时间戳：<code>{{NOW_STAMP}}</code></p>
+</footer>
+
+</div>
+</body>
+</html>
