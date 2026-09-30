@@ -1,0 +1,15 @@
+# wrangler.toml — CF Workers (static assets)
+# Owner: L1 调度师 (32789)
+# Date: 2026-09-30
+# Status: enables `npx wrangler deploy` to deploy ./dist as static assets
+#         without requiring a Worker script (main entry).
+#
+# Red lines:
+#   * No main = (script entry) — this is a static-only deploy.
+#   * No secrets in this file (only $env refs allowed).
+
+name = "jinman-seo-dashboard"
+compatibility_date = "2024-09-23"
+
+[assets]
+directory = "./dist"
