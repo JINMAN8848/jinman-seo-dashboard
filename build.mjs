@@ -512,7 +512,7 @@ const baiduErrRows = baiduMetrics.errRows.length === 0
 
 // Latest-day stats
 const latestGsc = gscMetrics.latest
-  ? `${gscMetrics.latest} · 总 ${gscMetrics.latestStats.total} / 通过 ${gscMetrics.latestStats.pass} / 失败 ${gscMetrics.latestStats.fail} / ERR ${gscMetrics.latestStats.err}`
+  ? `${gscMetrics.latest} · 总 ${gscMetrics.latestStats.total} / 已索引 ${gscMetrics.latestStats.indexed} / 失败 ${gscMetrics.latestStats.fail} / API 错误 ${gscMetrics.latestStats.api_err}`
   : '无 GSC 数据';
 const latestBaidu = baiduMetrics.latest
   ? `${baiduMetrics.latest} · 总 ${baiduMetrics.latestStats.total} 词 / 有排名 ${baiduMetrics.latestStats.ranked} / ERR ${baiduMetrics.latestStats.err}`
